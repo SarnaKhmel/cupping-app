@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native'
+import {View, Text, StyleSheet, ActivityIndicator, Image} from 'react-native'
 import * as firebase from 'firebase'
 
 export default class LoginScreen extends React.Component {
@@ -13,7 +13,10 @@ export default class LoginScreen extends React.Component {
       <View style={styles.container}>
         <Text>Loading...
         </Text>
-        <ActivityIndicator size="large"></ActivityIndicator>
+        <Image source={require("../assets/coffeeBeansLoading.png")}></Image>
+        {/* <ActivityIndicator>
+          
+        </ActivityIndicator> */}
       </View>
     )
   }
@@ -23,7 +26,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DA7C0B'
+    alignItems: 'center'
   }
 })

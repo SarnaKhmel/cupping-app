@@ -8,8 +8,6 @@ import RegisterScreen from './screens/RegisterScreen'
 
 import firebase from 'firebase'
 
-
-
 var firebaseConfig2 = {
   apiKey: "AIzaSyByfYO_CuSbmFPlgpQoz-2qW-1bI3wFxmc",
   authDomain: "cupping-app2.firebaseapp.com",
@@ -19,18 +17,18 @@ var firebaseConfig2 = {
   appId: "1:717247221739:web:82d2bbf6b069e5bea753ae"
 };
 
-// Initialize Firebase
-//firebase.initializeApp(firebaseConfig2);
+// Initialize Firebase firebase.initializeApp(firebaseConfig2);
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig2);
 }
 
-
-
 const AppStack = createStackNavigator({Home: HomeScreen})
 
-const AuthStack = createStackNavigator({Login: LoginScreen, Register: RegisterScreen})
+const AuthStack = createStackNavigator({
+    Login: LoginScreen,
+    Register: RegisterScreen
+})
 
 export default createAppContainer(createSwitchNavigator({
   Loading: LoadingScreen,

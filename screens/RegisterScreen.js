@@ -1,6 +1,14 @@
 import React from 'react'
-import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native'
-
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StatusBar
+} from 'react-native'
+import {Ionicons} from '@expo/vector-icons'
 import * as firebase from 'firebase'
 
 export default class RegisterScreen extends React.Component {
@@ -30,7 +38,25 @@ export default class RegisterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={{marginTop:-60, marginLeft: -35}}></Image>
+        <StatusBar barStyle="dark-content"></StatusBar>
+        <Image
+          source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
+          style={{
+          marginTop: -60,
+          marginLeft: -35
+        }}></Image>
+
+        <TouchableOpacity
+          style={styles.back}
+          onPress={() => this.props.navigation.goBack()}>
+
+          <Ionicons
+            name="arrow-back-circle-sharp"
+            size={42}
+            color="#8A8F9E"
+           ></Ionicons>
+
+        </TouchableOpacity>
 
         <View style={styles.divider}>
           <Text style={styles.title}>
@@ -103,13 +129,13 @@ export default class RegisterScreen extends React.Component {
               fontSize: 14,
               marginTop: 24
             }}>
-              New user?
+
               <Text
                 style={{
                 color: "#D32705",
                 fontWeight: "600"
               }}>
-                 Login</Text>
+                Login</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -121,13 +147,7 @@ export default class RegisterScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 2
-  },
-  greeting: {
-    marginTop: 0,
-    fontSize: 18,
-    fontWeight: "400",
-    textAlign: "center"
+    marginBottom: 10
   },
   errorMessage: {
     height: 72,
@@ -174,7 +194,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     //backgroundColor: "#75C2E5",
-    marginTop: -40,
+    marginTop: -60,
     height: 1,
     flex: 1,
     alignSelf: 'center'
@@ -184,6 +204,20 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     color: "#002333",
     // paddingHorizontal: 20
-    marginTop: 70
+    marginTop: 0
+  },
+  greeting: {
+    marginTop: -30,
+    paddingTop: -30,
+    fontSize: 18,
+    fontWeight: "400",
+    textAlign: "center"
+  },
+  back:{
+    position: "absolute",
+    top:32,
+    left:16,
+    width:42,
+    height:42
   }
 })

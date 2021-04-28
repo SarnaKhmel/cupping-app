@@ -34,7 +34,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content"></StatusBar>
+        <StatusBar barStyle="dark-content"></StatusBar>
         <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={{marginTop:-60, marginLeft: -35}}></Image>
         <View style={styles.divider}>
           <Text style={styles.title}>
