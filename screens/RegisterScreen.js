@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native'
 
 import * as firebase from 'firebase'
 
@@ -10,6 +10,10 @@ export default class RegisterScreen extends React.Component {
     password: "",
     errorMessage: null
   }
+
+  static navigationOptions = {
+    header: () => false
+  };
 
   handleSignUp = () => {
     firebase
@@ -26,13 +30,15 @@ export default class RegisterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={{marginTop:-60, marginLeft: -35}}></Image>
+
         <View style={styles.divider}>
           <Text style={styles.title}>
             Cupping
             <Text
               style={{
               fontWeight: "600",
-              color: "#8A4C01"
+              color: "#D32705"
             }}>
               Lists
             </Text>
@@ -100,10 +106,10 @@ export default class RegisterScreen extends React.Component {
               New user?
               <Text
                 style={{
-                color: "#E9446A",
+                color: "#D32705",
                 fontWeight: "600"
               }}>
-                Login</Text>
+                 Login</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -114,10 +120,11 @@ export default class RegisterScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginBottom: 2
   },
   greeting: {
-    //marginTop: 2,
+    marginTop: 0,
     fontSize: 18,
     fontWeight: "400",
     textAlign: "center"
@@ -135,7 +142,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   form: {
-    marginBottom: 48,
+    marginBottom: 40,
     marginHorizontal: 30
   },
   inputTitle: {
@@ -152,7 +159,7 @@ const styles = StyleSheet.create({
     color: "#161F3D"
   },
   button: {
-    marginTop: 32,
+    marginTop: 24,
     marginHorizontal: 30,
     backgroundColor: "#8A8F9E",
     borderRadius: 10,
@@ -167,6 +174,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     //backgroundColor: "#75C2E5",
+    marginTop: -40,
     height: 1,
     flex: 1,
     alignSelf: 'center'
@@ -175,6 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 38,
     fontWeight: "900",
     color: "#002333",
-    paddingHorizontal: 20
+    // paddingHorizontal: 20
+    marginTop: 70
   }
 })

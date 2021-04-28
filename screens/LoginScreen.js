@@ -1,9 +1,22 @@
 import React from 'react'
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+  LayoutAnimation
+} from 'react-native'
 
 import * as firebase from 'firebase'
 
 export default class LoginScreen extends React.Component {
+  static navigationOptions = {
+    header: () => false
+  };
+
   state = {
     email: "",
     password: "",
@@ -21,6 +34,20 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content"></StatusBar>
+        <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={{marginTop:-60, marginLeft: -35}}></Image>
+        <View style={styles.divider}>
+          <Text style={styles.title}>
+            Cupping
+            <Text
+              style={{
+              fontWeight: "600",
+              color: "#D32705"
+            }}>
+              Lists
+            </Text>
+          </Text>
+        </View>
         <Text style={styles.greeting}>
           {`Hello again. \n Welcome back.`}</Text>
 
@@ -55,13 +82,12 @@ export default class LoginScreen extends React.Component {
             <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity 
+          <TouchableOpacity
             style={{
             alignSelf: "center",
             marginTop: 32
           }}
-          onPress={() => this.props.navigation.navigate("Register")}
-          >
+            onPress={() => this.props.navigation.navigate("Register")}>
             <Text
               style={{
               color: "#414951",
@@ -71,7 +97,7 @@ export default class LoginScreen extends React.Component {
               New user?
               <Text
                 style={{
-                color: "#E9446A",
+                color: "#D32705",
                 fontWeight: "600"
               }}> Sign Up</Text>
             </Text>
@@ -88,7 +114,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center', alignItems: 'center' backgroundColor: '#DC8011'
   },
   greeting: {
-    marginTop: 32,
+    marginTop: 0,
     fontSize: 18,
     fontWeight: "400",
     textAlign: "center"
@@ -135,5 +161,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     color: "#FFF"
+  },
+  divider: {
+    //backgroundColor: "#75C2E5",
+    marginTop: -40,
+    height: 1,
+    flex: 1,
+    alignSelf: 'center'
+  },
+  title: {
+    fontSize: 38,
+    fontWeight: "900",
+    color: "#002333",
+    // paddingHorizontal: 20
+    marginTop: 70
   }
 })
