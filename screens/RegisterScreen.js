@@ -50,11 +50,7 @@ export default class RegisterScreen extends React.Component {
           style={styles.back}
           onPress={() => this.props.navigation.goBack()}>
 
-          <Ionicons
-            name="arrow-back-circle-sharp"
-            size={42}
-            color="#8A8F9E"
-           ></Ionicons>
+          <Ionicons name="arrow-back-circle-sharp" size={42} color="#8A8F9E"></Ionicons>
 
         </TouchableOpacity>
 
@@ -71,9 +67,28 @@ export default class RegisterScreen extends React.Component {
           </Text>
         </View>
 
-        <Text style={styles.greeting}>
-          {`Hello! \n Sign up to get started.`}
-        </Text>
+        <View
+          style={{
+          position: "absolute",
+          top: 180,
+          alignItems: "center",
+          width: "100%"
+        }}>
+          <Text style={styles.greeting}>{`Hello! \n Sign up to get started.`}</Text>
+          <TouchableOpacity style={styles.avatar}>
+            <Ionicons
+              name="add"
+              size={52}
+              color="#FFF"
+              style={{
+              marginTop: 0,
+              marginRight: 0
+            }}
+            >  
+            </Ionicons>
+          </TouchableOpacity>
+          
+        </View>
 
         <View style={styles.errorMessage}>
           {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -207,17 +222,26 @@ const styles = StyleSheet.create({
     marginTop: 0
   },
   greeting: {
-    marginTop: -30,
-    paddingTop: -30,
     fontSize: 18,
     fontWeight: "400",
     textAlign: "center"
   },
-  back:{
+  back: {
     position: "absolute",
-    top:32,
-    left:16,
-    width:42,
-    height:42
+    top: 32,
+    left: 16,
+    width: 42,
+    height: 42,
+    // borderRadius: 16, backgroundColor: "rgba(21, 22, 48, 0.3)", alignItems:
+    // "center", justifyContent: "center"
+  },
+  avatar:{
+    width: 80,
+    height: 80,
+    borderRadius: 50,
+    backgroundColor: "#8A8F9E",
+    marginTop: 24,
+    justifyContent: "center",
+    alignItems: "center"
   }
 })
