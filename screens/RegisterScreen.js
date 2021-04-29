@@ -9,7 +9,11 @@ import {
   StatusBar
 } from 'react-native'
 import {Ionicons} from '@expo/vector-icons'
+
 import * as firebase from 'firebase'
+
+import userPermissions from '../utilites/UserPermissions'
+import * as ImagePicker  from 'expo-image-picker'
 
 export default class RegisterScreen extends React.Component {
   state = {
@@ -39,7 +43,17 @@ export default class RegisterScreen extends React.Component {
   };
 
   handleAvatarPick = async() =>{
-    
+    userPermissions.getCameraPermissions()
+
+    let result =  await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3]
+    }) 
+
+    if(!result.cancelled){
+      this.setState({user:{...this.state.user, avatar: result.uri}})
+    }
   }
 
   render() {
@@ -83,7 +97,7 @@ export default class RegisterScreen extends React.Component {
         }}>
           <Text style={styles.greeting}>{`Hello! \n Sign up to get started.`}</Text>
           <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handleAvatarPick}>
-            <Image source={{url: this.state.user.avatar}} style={styles.avatar} />
+            <Image source={{uri: this.state.user.avatar}} style={styles.avatar} />
             <Ionicons
               name="add"
               size={52}
