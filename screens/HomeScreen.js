@@ -1,5 +1,12 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, Touchable, Image} from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Touchable,
+  Image
+} from 'react-native'
 
 import * as firebase from 'firebase'
 
@@ -8,26 +15,31 @@ export default class HomeScreen extends React.Component {
     email: "",
     displayName: ""
   }
-
   static navigationOptions = {
     header: () => false
   };
 
-  componentDidMount(){
-    const {email, displayName} = firebase.auth().currentUser;
+  componentDidMount() {
+    const {email, displayName} = firebase
+      .auth()
+      .currentUser;
 
     this.setState({email, displayName});
   }
 
   signOutUser = () => {
-    firebase.auth().signOut();
+    firebase
+      .auth()
+      .signOut();
   }
 
   render() {
     return (
       <View style={styles.container}>
-      <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={styles.image}></Image>
-      <View style={styles.divider}>
+        <Image
+          source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
+          style={styles.image}></Image>
+        <View style={styles.divider}>
           <Text style={styles.title}>
             Cupping
             <Text
@@ -41,8 +53,14 @@ export default class HomeScreen extends React.Component {
         </View>
         {/* <Text style={{ marginTop: -70}}> Hi {this.state.email}!</Text> */}
 
-        <TouchableOpacity style={{marginTop: 0}} onPress={this.signOutUser}>
-            <Text style={{color: "#DC3311"}}>Logout</Text>
+        <TouchableOpacity
+          style={{
+          marginTop: 0
+        }}
+          onPress={this.signOutUser}>
+          <Text style={{
+            color: "#DC3311"
+          }}>Logout</Text>
         </TouchableOpacity>
       </View>
     )
@@ -55,10 +73,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  image:{
-    marginTop: 0, 
+  image: {
+    marginTop: 0,
     marginLeft: 240,
-    transform: [{ rotate: '90deg' }]
+    transform: [
+      {
+        rotate: '90deg'
+      }
+    ]
   },
   divider: {
     //backgroundColor: "#75C2E5",

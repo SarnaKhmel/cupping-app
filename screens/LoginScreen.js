@@ -35,7 +35,12 @@ export default class LoginScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content"></StatusBar>
-        <Image source={require("../assets/coffeeBeansAppBackgroundImage4.png")} style={{marginTop:-60, marginLeft: -35}}></Image>
+        <Image
+          source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
+          style={{
+          marginTop: -60,
+          marginLeft: -35
+        }}></Image>
         <View style={styles.divider}>
           <Text style={styles.title}>
             Cupping
@@ -99,7 +104,8 @@ export default class LoginScreen extends React.Component {
                 style={{
                 color: "#D32705",
                 fontWeight: "600"
-              }}> Sign Up</Text>
+              }}>
+                Sign Up</Text>
             </Text>
           </TouchableOpacity>
         </View>

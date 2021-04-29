@@ -83,11 +83,9 @@ export default class RegisterScreen extends React.Component {
               style={{
               marginTop: 0,
               marginRight: 0
-            }}
-            >  
-            </Ionicons>
+            }}></Ionicons>
           </TouchableOpacity>
-          
+
         </View>
 
         <View style={styles.errorMessage}>
@@ -235,7 +233,7 @@ const styles = StyleSheet.create({
     // borderRadius: 16, backgroundColor: "rgba(21, 22, 48, 0.3)", alignItems:
     // "center", justifyContent: "center"
   },
-  avatar:{
+  avatar: {
     width: 80,
     height: 80,
     borderRadius: 50,

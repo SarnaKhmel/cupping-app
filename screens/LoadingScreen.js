@@ -4,9 +4,16 @@ import * as firebase from 'firebase'
 
 export default class LoginScreen extends React.Component {
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? "App" : "Auth");
-    });
+    firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        this
+          .props
+          .navigation
+          .navigate(user
+            ? "App"
+            : "Auth");
+      });
   }
   render() {
     return (
@@ -15,7 +22,7 @@ export default class LoginScreen extends React.Component {
         </Text>
         <Image source={require("../assets/coffeeBeansLoading.png")}></Image>
         {/* <ActivityIndicator>
-          
+
         </ActivityIndicator> */}
       </View>
     )
