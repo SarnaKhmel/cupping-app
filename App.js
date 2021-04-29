@@ -84,7 +84,12 @@ const AppTabNavigstor = createBottomTabNavigator(
 )
 
 
-const AuthStack = createStackNavigator({Login: LoginScreen, Register: RegisterScreen})
+const AuthStack = createStackNavigator({
+  Login: LoginScreen, 
+  Register: RegisterScreen
+}, {
+  initialRouteName: "Register"
+})
 
 export default createAppContainer(createSwitchNavigator({
   Loading: LoadingScreen,

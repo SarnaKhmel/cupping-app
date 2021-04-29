@@ -13,9 +13,12 @@ import * as firebase from 'firebase'
 
 export default class RegisterScreen extends React.Component {
   state = {
-    name: "",
-    email: "",
-    password: "",
+    user:{
+      name: "",
+      email: "",
+      password: "",
+      avatar: null
+    },
     errorMessage: null
   }
 
@@ -33,6 +36,10 @@ export default class RegisterScreen extends React.Component {
           .updateProfile({displayName: this.state.name})
       })
       .catch(error => this.setState({errorMessage: error.message}));
+  };
+
+  handleAvatarPick = async() =>{
+    
   }
 
   render() {
@@ -75,7 +82,8 @@ export default class RegisterScreen extends React.Component {
           width: "100%"
         }}>
           <Text style={styles.greeting}>{`Hello! \n Sign up to get started.`}</Text>
-          <TouchableOpacity style={styles.avatar}>
+          <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handleAvatarPick}>
+            <Image source={{url: this.state.user.avatar}} style={styles.avatar} />
             <Ionicons
               name="add"
               size={52}
@@ -233,7 +241,7 @@ const styles = StyleSheet.create({
     // borderRadius: 16, backgroundColor: "rgba(21, 22, 48, 0.3)", alignItems:
     // "center", justifyContent: "center"
   },
-  avatar: {
+  avatarPlaceholder:{
     width: 80,
     height: 80,
     borderRadius: 50,
@@ -241,5 +249,11 @@ const styles = StyleSheet.create({
     marginTop: 24,
     justifyContent: "center",
     alignItems: "center"
+  },
+  avatar: {
+    position:"absolute",
+    width: 80,
+    height: 80,
+    borderRadius: 50
   }
 })
