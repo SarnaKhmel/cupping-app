@@ -8,11 +8,18 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
-    StatusBar
+    StatusBar,
+    FlatList
   } from 'react-native'
+  import colors from '../Colors'
+
+  import tempData from '../tempData'
+
   import {Ionicons} from '@expo/vector-icons'
   
   import * as firebase from 'firebase'
+
+  import CupList from '../components/CupList'
   
   import userPermissions from '../utilites/UserPermissions'
   import * as ImagePicker  from 'expo-image-picker'
@@ -48,8 +55,17 @@ export default class CuppingScreen extends React.Component {
                  addCupping
              </Text>
              </View>
+                <View style={{height: 275, paddingLeft: 32, color:colors.lightred}}>
+                    <FlatList 
+                        data={tempData} 
+                        keyExtractor={item => item.name} 
+                        horizontal={true} 
+                        showsHorizontalScrollIndicator={false} 
+                        renderItem={({ item }) => <CupList list={item} />}
+                    />
+                </View>
             </View>
-        )
+        );
     }
 }
 
