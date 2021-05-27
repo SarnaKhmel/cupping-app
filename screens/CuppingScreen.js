@@ -28,7 +28,7 @@ import {
 
 export default class CuppingScreen extends React.Component {
     state = {
-        addCupsVisible: true
+        addCupsVisible: false
     }
 
     toggleAddCupsModal(){

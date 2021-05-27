@@ -11,7 +11,6 @@ import {
 import { AntDesign } from "@expo/vector-icons"
 import colors from '../Colors'
 import tempData from '../tempData'
-import CupList from '../components/CupList'
 
 export default class AddListModal extends React.Component {
     backgroundColor = ["#D92222", "#FFA213", "#14D701", "#2360F8", "#7428F7", "#CA236C"]
@@ -21,6 +20,24 @@ export default class AddListModal extends React.Component {
         country: "",
         farmer: "",
         color: this.backgroundColor[0]
+    }
+
+    createCupping = () => {
+        const { name, country, farmer, color } = this.state
+
+        tempData.push({
+            name,
+            color,
+            farmer,
+            country,
+            cups:[]
+        })
+
+        this.setState({name: ""});
+        this.setState({country: ""});
+        this.setState({farmer: ""});
+        this.props.closeModal();
+
     }
 
     renderColor() {
@@ -63,8 +80,11 @@ export default class AddListModal extends React.Component {
                     />
                     <View style={{flexDirection:"row", justifyContent:"space-between", marginTop: 12}}>{this.renderColor()}</View>
 
-                    <TouchableOpacity style={[styles.create, { backgroundColor: this.state.color }]}>
-                        <Text style={{color: colors.white, fontSize: 18, fontWeight:"600"}}>Create!</Text>
+                    <TouchableOpacity 
+                        style={[styles.create, { backgroundColor: this.state.color }]}
+                        onPress={this.createCupping}
+                    >
+                            <Text style={{color: colors.white, fontSize: 18, fontWeight:"600"}}>Create!</Text>
                     </TouchableOpacity>
                 </View>
 
