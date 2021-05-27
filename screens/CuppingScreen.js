@@ -9,7 +9,8 @@ import {
     Image,
     ScrollView,
     StatusBar,
-    FlatList
+    FlatList,
+    Modal
   } from 'react-native'
   import colors from '../Colors'
 
@@ -20,14 +21,29 @@ import {
   import * as firebase from 'firebase'
 
   import CupList from '../components/CupList'
+  import AddListModal from '../components/AddListModal'
   
   import userPermissions from '../utilites/UserPermissions'
   import * as ImagePicker  from 'expo-image-picker'
 
 export default class CuppingScreen extends React.Component {
+    state = {
+        addCupsVisible: true
+    }
+
+    toggleAddCupsModal(){
+        this.setState({addCupsVisible: !this.state.addCupsVisible})
+    }
+
     render() {
         return (
             <View style={styles.container}>
+                <Modal animationType="fade" 
+                        visible={this.state.addCupsVisible}
+                        onRequestClose = {() => this.toggleAddCupsModal()}
+                        > 
+                         <AddListModal closeModal={() => this.toggleAddCupsModal()} /> 
+                </Modal>
             <StatusBar barStyle="dark-content"></StatusBar>
             <Image
               source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
@@ -48,7 +64,7 @@ export default class CuppingScreen extends React.Component {
               </Text>
             </View>
             <View style={styles.add}>
-             <TouchableOpacity style={styles.addCuppingButton}>
+             <TouchableOpacity style={styles.addCuppingButton} onPress={() => this.toggleAddCupsModal()}>
                 <AntDesign name="plus" size={18} color={colors.lightred}/>
              </TouchableOpacity>
              <Text style={styles.addCupping}>
