@@ -7,7 +7,7 @@ export default  tempData = [
         farmer: 'testFarmerName1',
         country: 'testCountry1',
         cups:[
-            {
+            {   title: 'newnew',
                 roastLevel: '0',
                 aroma: '6',
                 flavor: '6',
@@ -38,9 +38,13 @@ export default  tempData = [
         country: 'testCountry2',
         cups:[
             {
-                roastLevel: '0',
-                aroma: '6',
-                flavor: '6',
+                roastLevel: 'low'
+            },
+            { 
+                aroma: '6'
+            },
+            {
+                flavor: '6'
             },
             {
                 aftertaste: '6',

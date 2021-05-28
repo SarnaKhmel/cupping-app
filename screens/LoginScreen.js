@@ -99,13 +99,12 @@ export default class LoginScreen extends React.Component {
               fontSize: 14,
               marginTop: 24
             }}>
-              New user?
-              <Text
-                style={{
-                color: "#D32705",
-                fontWeight: "600"
-              }}>
-                Sign Up</Text>
+              New user? <Text
+                            style={{
+                            color: "#D32705",
+                            fontWeight: "600"
+                          }}>
+                            Sign Up</Text>
             </Text>
           </TouchableOpacity>
         </View>

@@ -1,32 +1,56 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native'
 import colors from '../Colors'
+import CupModal from './CupModal'
 
-export default CupList = ({list}) => {
-    
-    return (
-        <View style={[styles.listContainer, {backgroundColor: list.color}]}>
-            <Text style={styles.description }>
-                Semple name:
-            </Text>
-            <Text style={styles.listTitle} numberOfLines={1}>
-                {list.name}
-            </Text>
-            <Text style={styles.description }>
-                Country:
-            </Text>
-            <Text style={styles.listTitle} numberOfLines={1}>
-                {list.country}
-            </Text>
-            <Text style={styles.description }>
-                Farmer:
-            </Text>
-            <Text style={styles.listTitle} numberOfLines={1}>
-                {list.farmer}
-            </Text>
-        </View>
-    )
+export default class CupList extends React.Component {
+    state = {
+        showCupsVisible:false
+    }
+
+    toggleListModal() {
+        this.setState({showCupsVisible: !this.state.showCupsVisible})
+    }
+
+    render() {
+        const list = this.props.list
+        
+            return (
+                <View>
+                    <Modal 
+                        animationType="slide"
+                        visible={this.state.showCupsVisible}
+                        onRequestClose={() => this.toggleListModal()}
+                    >
+                        <CupModal list = {list} closeModal={() => this.toggleListModal()} />
+                    </Modal>
+
+                    <TouchableOpacity style={[styles.listContainer, {backgroundColor: list.color}]}>
+                        <Text style={styles.description }>
+                            Semple name:
+                        </Text>
+                        <Text style={styles.listTitle} numberOfLines={1}>
+                            {list.name}
+                        </Text>
+                        <Text style={styles.description }>
+                            Country:
+                        </Text>
+                        <Text style={styles.listTitle} numberOfLines={1}>
+                            {list.country}
+                        </Text>
+                        <Text style={styles.description }>
+                            Farmer:
+                        </Text>
+                        <Text style={styles.listTitle} numberOfLines={1}>
+                            {list.farmer}
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                
+            )
+    }
 }
+    
 
 const styles = StyleSheet.create({
     listContainer: {

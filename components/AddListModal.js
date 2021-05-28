@@ -58,8 +58,8 @@ export default class AddListModal extends React.Component {
         return (
         <View style={styles.container}>
             <KeyboardAvoidingView style={styles.container} behavior="padding">
-                <TouchableOpacity style={{position: 'absolute', top:64, right: -150}} onPress={this.props.closeModal}>
-                    <AntDesign name="close" size={18} />
+                <TouchableOpacity style={{position: 'absolute', top:50, left: 300}} onPress={this.props.closeModal}>
+                    <AntDesign name="close" size={24} />
                 </TouchableOpacity>
                 <View style={{alignItems: 'stretch', marginHorizontal: 32 }}>
                     <Text style={styles.title}> Create new cupping  </Text>

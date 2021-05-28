@@ -15,16 +15,9 @@ import {
   import colors from '../Colors'
 
   import tempData from '../tempData'
-
-  import {Ionicons} from '@expo/vector-icons'
-  
-  import * as firebase from 'firebase'
-
   import CupList from '../components/CupList'
   import AddListModal from '../components/AddListModal'
-  
-  import userPermissions from '../utilites/UserPermissions'
-  import * as ImagePicker  from 'expo-image-picker'
+  //import CupModal from '../components/CupModal'
 
 export default class CuppingScreen extends React.Component {
     state = {
@@ -35,10 +28,14 @@ export default class CuppingScreen extends React.Component {
         this.setState({addCupsVisible: !this.state.addCupsVisible})
     }
 
+    renderList = list => {
+        return <CupList list={list} />
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Modal animationType="fade" 
+                <Modal animationType="slide" 
                         visible={this.state.addCupsVisible}
                         onRequestClose = {() => this.toggleAddCupsModal()}
                         > 
@@ -77,7 +74,7 @@ export default class CuppingScreen extends React.Component {
                         keyExtractor={item => item.name} 
                         horizontal={true} 
                         showsHorizontalScrollIndicator={false} 
-                        renderItem={({ item }) => <CupList list={item} />}
+                        renderItem={({item}) => this.renderList(item)}
                     />
                 </View>
             </View>

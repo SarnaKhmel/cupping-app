@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  KeyboardAvoidingView,
   StatusBar
 } from 'react-native'
 import {Ionicons} from '@expo/vector-icons'
@@ -61,120 +62,123 @@ export default class RegisterScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content"></StatusBar>
-        <Image
-          source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
-          style={{
-          marginTop: -60,
-          marginLeft: -35
-        }}></Image>
-
-        <TouchableOpacity
-          style={styles.back}
-          onPress={() => this.props.navigation.goBack()}>
-
-          <Ionicons name="arrow-back-circle-sharp" size={42} color="#8A8F9E"></Ionicons>
-
-        </TouchableOpacity>
-
-        <View style={styles.divider}>
-          <Text style={styles.title}>
-            Cupping
-            <Text
-              style={{
-              fontWeight: "600",
-              color: "#D32705"
-            }}>
-              Lists
-            </Text>
-          </Text>
-        </View>
-
-        <View
-          style={{
-          position: "absolute",
-          top: 180,
-          alignItems: "center",
-          width: "100%"
-        }}>
-          <Text style={styles.greeting}>{`Hello! \n Sign up to get started.`}</Text>
-          <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handleAvatarPick}>
-            <Image source={{uri: this.state.user.avatar}} style={styles.avatar} />
-            <Ionicons
-              name="add"
-              size={52}
-              color="#FFF"
-              style={{
-              marginTop: 0,
-              marginRight: 0
-            }}></Ionicons>
-          </TouchableOpacity>
-
-        </View>
-
-        <View style={styles.errorMessage}>
-          {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-        </View>
-
-        <View style={styles.form}>
-          <View>
-            <Text style={styles.inputTitle}>User name</Text>
-            <TextInput
-              style={styles.input}
-              autoCapitalize="none"
-              onChangeText={name => this.setState({name})}
-              value={this.state.name}></TextInput>
-          </View>
-
-          <View style={{
-            marginTop: 32
-          }}>
-            <Text style={styles.inputTitle}>Email Address</Text>
-            <TextInput
-              style={styles.input}
-              autoCapitalize="none"
-              onChangeText={email => this.setState({email})}
-              value={this.state.email}></TextInput>
-          </View>
-
-          <View style={{
-            marginTop: 32
-          }}>
-            <Text style={styles.inputTitle}>Password</Text>
-            <TextInput
-              style={styles.input}
-              secureTextEntry
-              autoCapitalize="none"
-              onChangeText={password => this.setState({password})}
-              value={this.state.password}></TextInput>
-
-          </View>
-
-          <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-            <Text style={styles.buttonText}>Sign Up</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-            alignSelf: "center",
-            marginTop: 32
-          }}
-            onPress={() => this.props.navigation.navigate("Login")}>
-            <Text
-              style={{
-              color: "#414951",
-              fontSize: 14,
-              marginTop: 24
-            }}>
-
-              <Text
+        <KeyboardAvoidingView style={styles.container} behavior="padding">
+              <Image
+                source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
                 style={{
-                color: "#D32705",
-                fontWeight: "600"
+                marginTop: -60,
+                marginLeft: -35
+              }}></Image>
+
+              <TouchableOpacity
+                style={styles.back}
+                onPress={() => this.props.navigation.goBack()}>
+
+                <Ionicons name="arrow-back-circle-sharp" size={42} color="#8A8F9E"></Ionicons>
+
+              </TouchableOpacity>
+
+              <View style={styles.divider}>
+                <Text style={styles.title}>
+                  Cupping
+                  <Text
+                    style={{
+                    fontWeight: "600",
+                    color: "#D32705"
+                  }}>
+                    Lists
+                  </Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                position: "absolute",
+                top: 180,
+                alignItems: "center",
+                width: "100%"
               }}>
-                Login</Text>
-            </Text>
-          </TouchableOpacity>
-        </View>
+                <Text style={styles.greeting}>{`Hello! \n Sign up to get started.`}</Text>
+                <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handleAvatarPick}>
+                  <Image source={{uri: this.state.user.avatar}} style={styles.avatar} />
+                  <Ionicons
+                    name="add"
+                    size={52}
+                    color="#FFF"
+                    style={{
+                    marginTop: 0,
+                    marginRight: 0
+                  }}></Ionicons>
+                </TouchableOpacity>
+
+              </View>
+
+              <View style={styles.errorMessage}>
+                {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
+              </View>
+
+              <View style={styles.form}>
+                <View>
+                  <Text style={styles.inputTitle}>User name</Text>
+                  <TextInput
+                    style={styles.input}
+                    autoCapitalize="none"
+                    onChangeText={name => this.setState({name})}
+                    value={this.state.name}></TextInput>
+                </View>
+
+                <View style={{
+                  marginTop: 32
+                }}>
+                  <Text style={styles.inputTitle}>Email Address</Text>
+                  <TextInput
+                    style={styles.input}
+                    autoCapitalize="none"
+                    onChangeText={email => this.setState({email})}
+                    value={this.state.email}></TextInput>
+                </View>
+
+                <View style={{
+                  marginTop: 32
+                }}>
+                  <Text style={styles.inputTitle}>Password</Text>
+                  <TextInput
+                    style={styles.input}
+                    secureTextEntry
+                    autoCapitalize="none"
+                    onChangeText={password => this.setState({password})}
+                    value={this.state.password}></TextInput>
+
+                </View>
+
+                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                  <Text style={styles.buttonText}>Sign Up</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={{
+                  alignSelf: "center",
+                  marginTop: 32
+                }}
+                  onPress={() => this.props.navigation.navigate("Login")}>
+                  <Text
+                    style={{
+                    color: "#414951",
+                    fontSize: 14,
+                    marginTop: 24
+                  }}>
+
+                    <Text
+                      style={{
+                      color: "#D32705",
+                      fontWeight: "600"
+                    }}>
+                      Login</Text>
+                  </Text>
+                </TouchableOpacity>
+              </View>
+        </KeyboardAvoidingView>
+        
       </View>
     )
   }
@@ -183,7 +187,9 @@ export default class RegisterScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 10
+    marginBottom: 10,
+    // justifyContent: "center",
+    // alignItems: "center"
   },
   errorMessage: {
     height: 72,
@@ -239,7 +245,7 @@ const styles = StyleSheet.create({
     fontSize: 38,
     fontWeight: "900",
     color: "#002333",
-    // paddingHorizontal: 20
+    paddingHorizontal: 20,
     marginTop: 0
   },
   greeting: {
