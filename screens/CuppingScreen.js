@@ -68,7 +68,7 @@ export default class CuppingScreen extends React.Component {
                  addCupping
              </Text>
              </View>
-                <View style={{height: 275, paddingLeft: 32, color:colors.lightred}}>
+                <View style={{height: 500, paddingLeft: 32, color:colors.lightred}}>
                     <FlatList 
                         data={tempData} 
                         keyExtractor={item => item.name} 
