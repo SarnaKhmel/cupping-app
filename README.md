@@ -21,6 +21,6 @@
 
 ## Project screenshots:              
 ![homepage](https://github.com/SarnaKhmel/cupping-app/blob/main/projectScreens/homePageScreen.png)
-![homepage](https://github.com/SarnaKhmel/cupping-app/blob/main/aboutScreen/.png)
-![homepage](https://github.com/SarnaKhmel/cupping-app/blob/main/projectScreens/createNewCuppingModal.png)
+![aboutpage](https://github.com/SarnaKhmel/cupping-app/blob/main/aboutScreen/.png)
+![creatingNewCuppingModal](https://github.com/SarnaKhmel/cupping-app/blob/main/projectScreens/createNewCuppingModal.png)
 
