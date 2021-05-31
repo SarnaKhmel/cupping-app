@@ -11,6 +11,8 @@ import {
 } from 'react-native'
 
 import * as firebase from 'firebase'
+import { AntDesign } from "@expo/vector-icons"
+import colors from '../Colors'
 
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
@@ -90,21 +92,18 @@ export default class LoginScreen extends React.Component {
           <TouchableOpacity
             style={{
             alignSelf: "center",
-            marginTop: 32
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 24
           }}
             onPress={() => this.props.navigation.navigate("Register")}>
+            <AntDesign name="adduser" size={32} color={colors.lightred}/>
             <Text
-              style={{
-              color: "#414951",
-              fontSize: 14,
-              marginTop: 24
-            }}>
-              New user? <Text
                             style={{
                             color: "#D32705",
                             fontWeight: "600"
                           }}>
-                            Sign Up</Text>
+                            Sign Up
             </Text>
           </TouchableOpacity>
         </View>
@@ -112,6 +111,8 @@ export default class LoginScreen extends React.Component {
     )
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {

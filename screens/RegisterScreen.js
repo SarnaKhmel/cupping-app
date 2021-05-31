@@ -11,11 +11,13 @@ import {
   StatusBar
 } from 'react-native'
 import {Ionicons} from '@expo/vector-icons'
-
+import { AntDesign } from "@expo/vector-icons"
 import * as firebase from 'firebase'
 
 import userPermissions from '../utilites/UserPermissions'
 import * as ImagePicker  from 'expo-image-picker'
+import colors from '../Colors'
+
 
 export default class RegisterScreen extends React.Component {
   state = {
@@ -161,11 +163,12 @@ export default class RegisterScreen extends React.Component {
                   marginTop: 32
                 }}
                   onPress={() => this.props.navigation.navigate("Login")}>
+                  <AntDesign name="login" size={32} color={colors.lightred}/>
                   <Text
                     style={{
-                    color: "#414951",
+                    color: colors.lightred,
                     fontSize: 14,
-                    marginTop: 24
+                    marginTop: 4
                   }}>
 
                     <Text

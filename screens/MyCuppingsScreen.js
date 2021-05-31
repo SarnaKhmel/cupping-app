@@ -40,7 +40,7 @@ export default class MyCuppingsScreen extends React.Component {
             <SafeAreaView style={styles.safeArea}>
             <ScrollView style={styles.content}>
                 <View style={styles.itemsBox}>
-                    <View style={{height: 48, paddingLeft: 16, color:colors.lightred}}>
+                    
                         {/* <FlatList 
                             data={tempData} 
                             keyExtractor={item => item.name} 
@@ -50,11 +50,7 @@ export default class MyCuppingsScreen extends React.Component {
                         /> */}
                         <Text style={styles.items}>
                             Item
-                        </Text>
-                        <Text style={styles.items}>
-                            Item
-                        </Text>
-                    </View>
+                        </Text>        
                 </View>
             </ScrollView>
             </SafeAreaView>
@@ -97,17 +93,20 @@ const styles = StyleSheet.create({
         borderRadius: 16
     },
     items:{
-        margin: 16,
+        marginTop:8,
         backgroundColor: colors.gray,
         fontSize: 18,
         padding:8,
-        borderRadius: 16, 
-        width: 300
+        width: 300, 
+        marginTop: 16,
+        marginRight: 16,
+        marginLeft: 16,
     },
     safeArea: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: StatusBar.currentHeight,
+       
     }
 })
