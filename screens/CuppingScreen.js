@@ -20,6 +20,8 @@ import {
   //import CupModal from '../components/CupModal'
 
 export default class CuppingScreen extends React.Component {
+    
+
     state = {
         addCupsVisible: false
     }
@@ -33,6 +35,7 @@ export default class CuppingScreen extends React.Component {
     }
 
     render() {
+        
         return (
             <View style={styles.container}>
                 <Modal animationType="slide" 
@@ -41,6 +44,7 @@ export default class CuppingScreen extends React.Component {
                         > 
                          <AddListModal closeModal={() => this.toggleAddCupsModal()} /> 
                 </Modal>
+
             <StatusBar barStyle="dark-content"></StatusBar>
             <Image
               source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
@@ -68,7 +72,8 @@ export default class CuppingScreen extends React.Component {
                  addCupping
              </Text>
              </View>
-                <View style={{height: 500, paddingLeft: 32, color:colors.lightred}}>
+                <View style={{height: 300, paddingLeft: 32, color:colors.lightred}}>
+                {/* <TouchableOpacity> */}
                     <FlatList 
                         data={tempData} 
                         keyExtractor={item => item.name} 
@@ -76,6 +81,7 @@ export default class CuppingScreen extends React.Component {
                         showsHorizontalScrollIndicator={false} 
                         renderItem={({item}) => this.renderList(item)}
                     />
+                {/* </TouchableOpacity>     */}
                 </View>
             </View>
         );

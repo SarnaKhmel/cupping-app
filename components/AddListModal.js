@@ -48,7 +48,6 @@ export default class AddListModal extends React.Component {
                     style={[styles.colorSelect, {backgroundColor: color}]}
                     onPress={()=>this.setState({color})}    
                 >
-
                 </TouchableOpacity>
             )
         })

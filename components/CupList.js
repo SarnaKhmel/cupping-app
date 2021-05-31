@@ -25,13 +25,14 @@ export default class CupList extends React.Component {
                         <CupModal list = {list} closeModal={() => this.toggleListModal()} />
                     </Modal>
 
-                    <TouchableOpacity style={[styles.listContainer, {backgroundColor: list.color}]}>
+                    <TouchableOpacity style={[styles.listContainer, {backgroundColor: list.color}]} onPress={() => this.toggleListModal()}>
                         <Text style={styles.description }>
                             Semple name:
                         </Text>
                         <Text style={styles.listTitle} numberOfLines={1}>
                             {list.name}
                         </Text>
+
                         <Text style={styles.description }>
                             Country:
                         </Text>

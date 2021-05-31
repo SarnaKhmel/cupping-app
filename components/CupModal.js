@@ -42,11 +42,11 @@ export default class CupModal extends React.Component {
           <Text style={styles.title}> 
                   Roast Level
                 </Text>
-            <FlatList 
+            {/* <FlatList 
               data={this.state.cups} 
               renderItem={({item}) => this.renderCup(item)}
               keyExtractor={item => item.title}
-            />
+            /> */}
           </View>
       </SafeAreaView>
     )
