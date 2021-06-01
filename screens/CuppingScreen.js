@@ -80,6 +80,7 @@ export default class CuppingScreen extends React.Component {
                         horizontal={true} 
                         showsHorizontalScrollIndicator={false} 
                         renderItem={({item}) => this.renderList(item)}
+                        inverted={true}
                     />
                 {/* </TouchableOpacity>     */}
                 </View>

@@ -213,6 +213,17 @@ export default class CupModal extends React.Component {
                   {cupScore}
                 </Text>
               </View>
+              
+              <View style={styles.lineSave}>
+                <View style={styles.save}>
+                  <TouchableOpacity style={styles.addCuppingButton}>
+                      <AntDesign name="save" size={32} color={colors.lightred}/>
+                  </TouchableOpacity>
+                  <Text style={styles.addCupping}>
+                      save
+                  </Text>
+                </View>
+              </View>
           </ScrollView>
       </SafeAreaView>
     )
@@ -277,5 +288,21 @@ const styles = StyleSheet.create({
       marginRight: 20,
       alignItems: "stretch",
       justifyContent: "center"
+    },
+    save:{
+        borderRadius: 6,
+        textTransform: "uppercase",
+        borderWidth: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 5,
+        paddingLeft: 60,
+        paddingRight: 60,
+        paddingBottom:5,
+        marginBottom: 30
+    },
+    lineSave:{
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })

@@ -1,11 +1,34 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, StatusBar, Image, ScrollView, FlatList, SafeAreaView} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, Modal, StatusBar, Image, ScrollView, FlatList, SafeAreaView} from 'react-native'
 import colors from '../Colors'
+
 import tempData from '../tempData'
+import CupList from '../components/CupList'
+import AddListModal from '../components/AddListModal'
+
+
 export default class MyCuppingsScreen extends React.Component {
+    state = {
+        addCupsVisible: false
+    }
+
+    toggleAddCupsModal(){
+        this.setState({addCupsVisible: !this.state.addCupsVisible})
+    }
+
+    renderList = list => {
+        return <CupList list={list} />
+    }
+
     render() {
         return (
            <View style={styles.container}>
+               <Modal animationType="slide" 
+                        visible={this.state.addCupsVisible}
+                        onRequestClose = {() => this.toggleAddCupsModal()}
+                        > 
+                         <AddListModal closeModal={() => this.toggleAddCupsModal()} /> 
+                </Modal>
             <StatusBar barStyle="dark-content"></StatusBar>
             <Image
               source={require("../assets/coffeeBeansAppBackgroundImage4.png")}
@@ -41,16 +64,16 @@ export default class MyCuppingsScreen extends React.Component {
             <ScrollView style={styles.content}>
                 <View style={styles.itemsBox}>
                     
-                        {/* <FlatList 
-                            data={tempData} 
-                            keyExtractor={item => item.name} 
-                            horizontal={true} 
-                            showsHorizontalScrollIndicator={false} 
-                            renderItem={({item}) => this.renderList(item)}
-                        /> */}
-                        <Text style={styles.items}>
-                            Item
-                        </Text>        
+                        
+                        {/* < View style={styles.items}> */}
+                            <FlatList 
+                                data={tempData} 
+                                keyExtractor={item => item.name} 
+                                vertical={true} 
+                                showsVerticalScrollIndicator = {false}
+                                renderItem={({item}) => this.renderList(item)}
+                        />
+                        {/* </View>         */}
                 </View>
             </ScrollView>
             </SafeAreaView>
@@ -90,7 +113,11 @@ const styles = StyleSheet.create({
     itemBox: {
         marginTop:8,
         marginBottom: 8,
-        borderRadius: 16
+        borderRadius: 16, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 500
+
     },
     items:{
         marginTop:8,
