@@ -13,36 +13,32 @@ export default class CupModal extends React.Component {
         farmer: this.props.list.farmer,
         country: this.props.list.country,
         roastLevel: this.props.list.roastLevel,
+
         aroma: this.props.list.aroma,
-        flavors: this.props.list.flavors,
+        flavor: this.props.list.flavor,
         aftertaste: this.props.list.aftertaste,
         acidity: this.props.list.acidity,
         body: this.props.list.body,
         balance: this.props.list.balance,
-        uniformity: this.props.list.uniformity,
-        sweetness: this.props.list.sweetness,
-        cleanCup: this.props.list.cleanCup,
+        // uniformity: this.props.list.uniformity,
+        // sweetness: this.props.list.sweetness,
+        // cleanCup: this.props.list.cleanCup,
         overall: this.props.list.overall,
         score: this.props.list.score,
-        completed: this.props.list.completed
+        completed: this.props.list.completed,
+        // cupScore: null
     }
-
-    // renderCup = cup => {
-    //   return (
-    //     <View>
-    //       <Text>{cup.roastLevel}</Text>
-    //     </View>
-    //   )
-    // }
-    //   onChange(e) {
-    //     const newVal = forceNumber(e.target.roastLevel);
-    //     this.setState({value: newVal});
-    // }
-
+    
   render() {
     const list = this.props.list
-    const minRoastLevel = 1
-    const maxRoastLevel = 5
+    const startSlidervalue = 6
+    const endSlidervalue = 10
+    const stepSlidervalue = 0.25
+    
+    cupScore = this.state.aroma + this.state.flavor + this.state.acidity + this.state.aftertaste + this.state.body + this.state.balance + this.state.overall + 30
+
+    
+    
     return (
       <SafeAreaView style={styles.container}>
           <TouchableOpacity 
@@ -67,7 +63,7 @@ export default class CupModal extends React.Component {
                 </TextInput>
               </View>
               <View style={styles.line}>
-                <Text style={styles.description }> Country: </Text>
+                <Text style={styles.description }> Farmer: </Text>
                 <TextInput
                     style={styles.input}
                     autoCapitalize="none"
@@ -91,8 +87,132 @@ export default class CupModal extends React.Component {
                     step={1}
                     onValueChange={roastLevel => this.setState({ roastLevel })}
                   />
-                </View>
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> Aroma: </Text>
+                <Text style={styles.description }>
+                  {this.state.aroma}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.aroma}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={aroma => this.setState({ aroma })}
+                  />
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> Flavor: </Text>
+                <Text style={styles.description }>
+                  {this.state.flavor}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.flavor}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={flavor => this.setState({ flavor })}
+                  />
+              </View>
               
+              <View style={styles.line}>
+                <Text style={styles.description }> Aftertaste: </Text>
+                <Text style={styles.description }>
+                  {this.state.aftertaste}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.aftertaste}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={aftertaste => this.setState({ aftertaste })}
+                  />
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> Acidity: </Text>
+                <Text style={styles.description }>
+                  {this.state.acidity}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.acidity}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={acidity => this.setState({ acidity })}
+                  />
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> body: </Text>
+                <Text style={styles.description }>
+                  {this.state.body}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.body}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={body => this.setState({ body })}
+                  />
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> balance: </Text>
+                <Text style={styles.description }>
+                  {this.state.balance}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.balance}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={balance => this.setState({ balance })}
+                  />
+              </View>
+
+              <View style={styles.line}>
+                <Text style={styles.description }> overall: </Text>
+                <Text style={styles.description }>
+                  {this.state.overall}
+                </Text>
+              </View>
+                <View style={styles.slider}>
+                  <Slider
+                    value={this.state.overall}
+                    useNativeDriver={true}
+                    minimumValue = {startSlidervalue}
+                    maximumValue = {endSlidervalue}
+                    step={stepSlidervalue}
+                    onValueChange={overall => this.setState({ overall })}
+                  />
+              </View>
+              <View style={styles.line}>
+                <Text style={styles.description }> Score: </Text>
+                <Text style={styles.description }>
+                  {cupScore}
+                </Text>
+              </View>
           </ScrollView>
       </SafeAreaView>
     )
