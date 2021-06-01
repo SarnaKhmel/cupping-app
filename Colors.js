@@ -8,6 +8,8 @@ export default colors = {
     darkred: '#C0392B',
     lightred: '#D32705',
     gray: '#A4A4A4',
-    lightGray: '#CACACA'
+    lightGray: '#CACACA',
+    lite: '#CACACA)'
+    
     
 }

@@ -29,8 +29,7 @@ export default class AddListModal extends React.Component {
             name,
             color,
             farmer,
-            country,
-            cups:[]
+            country
         })
 
         this.setState({name: ""});
