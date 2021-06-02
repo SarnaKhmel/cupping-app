@@ -2,8 +2,8 @@ import React from 'react'
 import { Text, View, StyleSheet, SafeAreaView, Animated, TouchableOpacity, FlatList, ScrollView, TextInput} from 'react-native'
 import {AntDesign} from '@expo/vector-icons'
 import colors from '../Colors'
-// import { Slider } from 'react-native-elements';
-import Slider from "react-native-smooth-slider";
+import { Slider } from 'react-native-elements';
+// import Slider from "react-native-smooth-slider";
 // import {RangeStepInput} from 'react-range-step-input';
 
 export default class CupModal extends React.Component {
@@ -181,15 +181,17 @@ export default class CupModal extends React.Component {
                 </Text>
               </View>
                 <View style={styles.slider}>
-                  <Slider
-                    value={this.state.balance}
-                    useNativeDriver={true}
-                    minimumValue = {startSlidervalue}
-                    maximumValue = {endSlidervalue}
-                    step={stepSlidervalue}
-                    onValueChange={balance => this.setState({ balance })}
-                  />
-              </View>
+                  <TouchableOpacity>
+                    <Slider
+                      value={this.state.balance}
+                      useNativeDriver={true}
+                      minimumValue = {startSlidervalue}
+                      maximumValue = {endSlidervalue}
+                      step={stepSlidervalue}
+                      onValueChange={balance => this.setState({ balance })}
+                    />
+                  </TouchableOpacity>
+                </View>
 
               <View style={styles.line}>
                 <Text style={styles.description }> overall: </Text>
